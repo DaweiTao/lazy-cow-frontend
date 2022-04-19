@@ -42,11 +42,10 @@ testem.log
 Thumbs.db
 
 # node packs
-src/node_modules/
 package-lock.json
 
 # env
-src/environments/
+**/environments/
 
 # production
-dist/
+**/dist
