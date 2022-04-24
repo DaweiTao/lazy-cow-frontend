@@ -1,0 +1,30 @@
+<section id="profile-page">
+    <ng-scrollbar id="scrollbar" track="all">
+        <mat-card id="profile-wrapper" *ngIf="(auth.user$| async) as user">
+            <div id="profile-header">
+                <div id="avatar-wrapper" >
+                    <img [src]="user.picture" alt="user avatar">
+                </div>
+                <div id="header-text-wrapper">
+                    <div id="username" class="header-row">
+                        <div class="profile-icon"><mat-icon>account_circle</mat-icon></div>
+                        <div class="profile-field">Username</div> 
+                        {{user.name}}
+                    </div>
+                    <div id="email" class="header-row">
+                        <div class="profile-icon"><mat-icon>email</mat-icon></div>
+                        <div class="profile-field">Email</div> 
+                        {{user.email}} 
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="profile-body">
+                <div id="debug-info">
+                    {{user| json}}
+                </div>
+            </div>
+        </mat-card>
+    </ng-scrollbar>
+    
+</section>

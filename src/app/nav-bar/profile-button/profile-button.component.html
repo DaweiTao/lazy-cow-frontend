@@ -1,0 +1,8 @@
+<section *ngIf="(auth.user$ | async) as user" id="profile-button" mat-ripple fxLayout="row" (click)="onClickProfileButton()">
+    <div id="avatar-wrapper">
+        <img id="avatar" [src]="user.picture" alt="Avatar">
+    </div>
+    <div id="username" *ngIf="user.name as username">
+        {{(username.length > 12) ? (username | slice:0:12) + '...' : username}}
+    </div>
+</section>

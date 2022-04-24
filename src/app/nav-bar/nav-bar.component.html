@@ -1,0 +1,19 @@
+<section id="nav-bar-wrapper" class="mat-elevation-z8">
+    <mat-toolbar id="tool-bar" fxLayout="row">
+        <button class="nav-button" id="menu-trigger" mat-raised-button color="primary" (click)="onToggleSideMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div id="button-right-wrapper" >
+            <div *ngIf="!(auth.isAuthenticated$ | async)">
+                <button class="nav-button" mat-raised-button color="primary" (click)="onClickLoginButton()" > 
+                    Signup / Login 
+                </button>
+            </div>
+            <div *ngIf="auth.isAuthenticated$ | async" (click)="onClickNavButton()">
+                <app-profile-button></app-profile-button>
+            </div>
+        </div>
+    </mat-toolbar>
+
+    <app-profile-menu></app-profile-menu>
+</section>

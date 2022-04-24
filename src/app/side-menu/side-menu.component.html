@@ -1,0 +1,42 @@
+<div id="side-menu" class="mat-elevation-z8">
+    <ng-scrollbar id="side-menu-scrollbar" track="vertical">
+        <div id="side-menu-wrapper" >
+            <div id="logo-wrapper">
+                <img src="../../assets/img/logo.png" alt="logo" id="logo">
+            </div>
+            <div mat-ripple class="side-menu-item" (click)="onSelectMenuItem()" routerLink="/home" routerLinkActive="active">
+                <div class="nav-icon">
+                    <mat-icon>home</mat-icon>
+                </div>
+                Home
+            </div>
+            <div mat-ripple class="side-menu-item" (click)="onSelectMenuItem()" routerLink="/market" routerLinkActive="active">
+                <div class="nav-icon">
+                    <mat-icon>assessment</mat-icon>
+                </div>
+                Market
+            </div>
+            <div mat-ripple class="side-menu-item" (click)="onSelectMenuItem()" routerLink="/watchlist" routerLinkActive="active">
+                <div class="nav-icon">
+                    <mat-icon>favorite</mat-icon>
+                </div>
+                Watchlist
+            </div>
+            <div mat-ripple class="side-menu-item" (click)="onSelectMenuItem()" routerLink="/charts" routerLinkActive="active">
+                <div class="nav-icon">
+                    <mat-icon>trending_up</mat-icon>
+                </div>
+                Charts
+            </div>
+            <mat-divider></mat-divider>
+            <a href="https://google.github.io/material-design-icons/" target="_blank">
+                <div mat-ripple class="side-menu-item">
+                    <div class="nav-icon">
+                        <mat-icon>code</mat-icon>
+                    </div>
+                    Source code
+                </div>
+            </a>
+        </div>
+    </ng-scrollbar>
+</div>

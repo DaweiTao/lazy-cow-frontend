@@ -1,0 +1,73 @@
+#side-menu {
+    width: 240px;
+    height: calc(100vh - 60px);
+    border: 0;
+    background-color: #282828;
+}
+
+#side-menu-scrollbar {
+    width: 100%;
+    height: 100%;
+    --scrollbar-padding: 3px;
+    --scrollbar-size: 5px;
+    --scrollbar-thumb-color: #FFE0B2;
+    --scrollbar-track-color: rgba(0, 0, 0, 0.592);
+}
+
+#side-menu-wrapper {
+    width: calc(240px - 11px);
+    height: calc(100vh - 60px);
+}
+
+.side-menu-item{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: medium;
+    border: 0;
+    outline: none;
+    user-select:none;
+}
+
+.nav-icon {
+    display: flex;
+    width: 40px;
+    height: 100%;
+    align-items: center;
+}
+
+#side-menu-wrapper a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+    border: 0;
+    outline: none;
+}
+
+.active {
+    background-color: rgb(88, 88, 88);
+}
+
+#logo-wrapper {
+    display: flex;
+    width: 100%;
+    height: 110px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+    
+}
+
+#logo {
+    width: 160px;
+    height: 100%;
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+

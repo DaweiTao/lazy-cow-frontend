@@ -1,0 +1,15 @@
+<section id="profile-menu">
+    <div id="profile-menu-trigger" [matMenuTriggerFor]="menu" #profileMenuTrigger="matMenuTrigger">profile</div>
+    <mat-menu class="dark-menu" #menu>
+        <div id="menu-item-wrapper">
+            <div mat-ripple class="menu-item" routerLink="/profile">
+                <mat-icon class="menu-icon">account_box</mat-icon>
+                My account
+            </div>
+            <div mat-ripple class="menu-item" (click)="onLogout()">
+                <mat-icon class="menu-icon">exit_to_app</mat-icon>
+                Logout
+            </div>
+        </div>
+    </mat-menu>
+</section>

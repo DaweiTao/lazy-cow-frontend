@@ -1,0 +1,76 @@
+#profile-page {
+    width: 100vw;
+    height: 100%;
+}
+
+#scrollbar {
+    width: 100%;
+    height: 100%;
+    --scrollbar-padding: 5px;
+    --scrollbar-size: 15px;
+    --scrollbar-thumb-color: #FFE0B2;
+    --scrollbar-track-color: rgba(0, 0, 0, 0.592);
+}
+
+#profile-wrapper {
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: calc(100% - 80px);
+    height: 100%;
+    padding: 0px;
+}
+
+#profile-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+#avatar-wrapper {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    margin-right: 20px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.header-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.profile-field {
+    width: 100px;
+    user-select: none;
+}
+
+#profile-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}

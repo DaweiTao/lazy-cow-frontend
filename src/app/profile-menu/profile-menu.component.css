@@ -1,0 +1,41 @@
+#profile-menu {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 60px;
+    right: 0px;
+    width: 200px;
+}
+
+#profile-menu-trigger {
+    height: 20px;
+    margin-top: -20px;
+    visibility: hidden;
+}
+
+#menu-item-wrapper {
+    width: 200px;
+}
+
+button {
+    font-size: medium;
+    padding-left: 40px;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    font-size: medium;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    user-select: none;
+}
+
+.menu-icon {
+    margin-right: 20px;
+}
