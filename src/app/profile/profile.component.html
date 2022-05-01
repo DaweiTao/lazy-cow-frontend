@@ -1,30 +1,85 @@
 <section id="profile-page">
     <ng-scrollbar id="scrollbar" track="all">
-        <mat-card id="profile-wrapper" *ngIf="(auth.user$| async) as user">
+        <mat-card id="profile-wrapper" *ngIf="userMeta">
             <div id="profile-header">
                 <div id="avatar-wrapper" >
-                    <img [src]="user.picture" alt="user avatar">
+                    <img [src]="userMeta.picture" alt="user avatar">
                 </div>
                 <div id="header-text-wrapper">
                     <div id="username" class="header-row">
                         <div class="profile-icon"><mat-icon>account_circle</mat-icon></div>
                         <div class="profile-field">Username</div> 
-                        {{user.name}}
+                        {{userMeta.name}}
                     </div>
                     <div id="email" class="header-row">
                         <div class="profile-icon"><mat-icon>email</mat-icon></div>
                         <div class="profile-field">Email</div> 
-                        {{user.email}} 
+                        {{userMeta.email}} 
                     </div>
                 </div>
             </div>
             <mat-divider></mat-divider>
             <div id="profile-body">
-                <div id="debug-info">
-                    {{user| json}}
+                <div id="id-token" *ngIf="userMeta">
+                    <div class="body-row">
+                        <div class="body-key">UID</div>
+                        <div class="body-value">{{userMeta.uid}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Name</div>
+                        <div class="body-value">{{userMeta.name}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Family Name</div>
+                        <div class="body-value">{{userMeta.familyName}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Given Name</div>
+                        <div class="body-value">{{userMeta.givenName}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Locale</div>
+                        <div class="body-value">{{userMeta.locale}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Email</div>
+                        <div class="body-value">{{userMeta.email}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Email Verified</div>
+                        <div class="body-value">{{userMeta.emailVerified ? "Yes": "No"}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Token</div>
+                        <div class="body-value">{{userMeta.token}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Token Issuer</div>
+                        <div class="body-value">{{userMeta.tokenIssuer}}</div>
+                    </div>
+                    <div class="body-row" *ngIf="userMeta.iat">
+                        <div class="body-key">Token Issue Date</div>
+                        <div class="body-value">{{userMeta.iat * 1000 | date:'long'}}</div>
+                    </div>
+                    <div class="body-row" *ngIf="userMeta.exp">
+                        <div class="body-key">Token Exp. Date</div>
+                        <div class="body-value">{{userMeta.exp * 1000 | date:'long'}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">Token nonce</div>
+                        <div class="body-value">{{userMeta.nonce}}</div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-key">API Audience</div>
+                        <div class="body-value">{{userMeta.audience}}</div>
+                    </div>
                 </div>
+                <!-- <div>
+                    <pre id="token-info">
+                        <p>{{auth.idTokenClaims$ | async | json}}</p>
+                    </pre>
+                </div> -->
             </div>
         </mat-card>
     </ng-scrollbar>
-    
 </section>

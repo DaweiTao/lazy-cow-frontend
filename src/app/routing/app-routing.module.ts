@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: "auth0", component: Auth0CallbackComponent, 
   },
   { path: "profile", component: ProfileComponent, 
-    canActivate: [AuthGuard, EmailVerficationGuardGuard]
+    canActivate: [AuthGuard]
   },
   { path: "watchlist", component: WatchlistComponent,
     canActivate: [AuthGuard, EmailVerficationGuardGuard]

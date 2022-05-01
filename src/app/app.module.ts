@@ -9,6 +9,7 @@ import { MaterialModule } from "./material/material.module";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { AuthModule } from '@auth0/auth0-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -20,9 +21,11 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { MarketComponent } from './market/market.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+import { Auth0CallbackComponent } from './auth/auth0-callback/auth0-callback.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 
 import { environment } from 'src/environments/environment';
-import { Auth0CallbackComponent } from './auth/auth0-callback/auth0-callback.component';
 
 
 @NgModule({
@@ -50,9 +53,24 @@ import { Auth0CallbackComponent } from './auth/auth0-callback/auth0-callback.com
     AuthModule.forRoot({
       domain: environment.auth0Domain,
       clientId: environment.auth0ClientId,
+      issuer: `https://${environment.auth0Domain}/`,
+      audience: environment.auth0Audience,
+      httpInterceptor: {
+        // attach access token to these api routes
+        allowedList: [
+          `${environment.apiUrl}/msg/private`
+        ]
+      }
     }),
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

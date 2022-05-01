@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDrawer} from '@angular/material/sidenav';
+import { Component, OnInit } from '@angular/core';
 import { SideMenuService } from '../services/side-menu.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-nav-bar',
@@ -21,12 +21,16 @@ export class NavBarComponent implements OnInit {
 
   onClickLoginButton() {
     this.ss.closeDrawer()
-    this.auth.loginWithRedirect({
-      redirect_uri: "http://localhost:4200",
-      appState: {
-        target: "/watchlist"
+    this.auth.loginWithRedirect(
+      {
+        // auth0 api callback
+        redirect_uri: environment.auth0LoginCallbackUrl,
+        // navigation on success
+        appState: {
+          target: "/market"
+        }
       }
-    })
+    )
   }
 
   onClickNavButton() {

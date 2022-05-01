@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ProfileMenuService } from 'src/app/services/profile-menu.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-menu',
@@ -22,7 +23,9 @@ export class ProfileMenuComponent implements OnInit, AfterViewInit{
   
   public onLogout() {
     this.auth.logout(
-      {returnTo: 'http://localhost:4200/home'}
+      {
+        returnTo: environment.auth0LogoutCallbackUrl
+      }
     )
   }
 }
